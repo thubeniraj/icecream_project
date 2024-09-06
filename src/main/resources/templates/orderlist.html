@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <!-- <style>
+        .table-wrapperrr
+        {
+            margin:20px auto;
+            width: 91%;
+            padding-right: 21%;
+        }
+        .totalprice{
+          margin-left: 10%;
+        }
+    </style> 
+    <style>
+      /* table {
+          width: 70%;
+          border-collapse: collapse;
+          margin: 20px 0;
+          font-size: 18px;
+          text-align: left;
+          margin-left: 15%;
+      } */
+      th, td {
+          padding: 8px 12px;
+          border: 1px solid black;
+      }
+      th {
+          background-color: #f2f2f2;
+      }
+      td {
+          height: 40px;
+      }
+  </style>
+    
+</head>
+
+ <body>
+ 
+  <div class="table-wrapperrr">
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+      <tr>
+          <th>ID</th>
+          <th> Name</th>
+          <th> Address </th>
+          <th> MobileNo</th>           
+          <th> Date</th>           
+          
+        </tr>
+      </thead>
+      <tbody> 
+        <tr>  
+          <td th:text="${order.id}"></td>
+          <td th:text="${order.name}"> </td>
+          <td th:text="${order.adress}"></td>
+          <td th:text="${order.mobileno}"></td>
+          <td th:text="${order.date}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+
+
+
+
+
+
+
+  
+
+  
+    <div class="table-wrapper" >
+        <table>
+          <tr>  
+          <th>Flavour</th>
+          <th>Quantity/kg</th>
+          <th>Rate</th>
+          <th>Amount</th>
+        </tr>
+        <tr th:if="${order.Coconutquantity}>0" >  
+          <td><span th:if="${order.Coconutquantity}>0">Coconut</span></td>
+          <td th:text="${order.Coconutquantity} >0 ? ${order.Coconutquantity}"></td>
+          <td th:text="${order.Coconutquantity} >0 ? ${order.Coconutrate}"></td> 
+          <td th:text="${order.Coconutquantity} >0 ? ${order.Coconutquantity}*${order.Coconutrate}"></td>
+        </tr>
+         <tr th:if="${order.Mangoquantity}>0">  
+          <td>Mango</td>
+          <td th:text="${order.Mangoquantity}"></td>
+           <td th:text="${order.Mangorate}"></td>
+           <td th:text="${order.Mangoquantity}*${order.Mangorate}"></td>
+        </tr>
+        <tr th:if="${order.kalajamunquantity}>0">  
+          <td>Kalajamun</td>
+          <td th:text="${order.kalajamunquantity}"></td>
+          <td th:text="${order.kalajamunrate}"></td>
+          <td th:text="${order.kalajamunquantity}*${order.kalajamunrate}"></td>
+        </tr>
+        <tr th:if="${order.Strawberryquantity}>0">  
+          <td>Strawberry</td>
+          <td th:text="${order.Strawberryquantity}"></td>
+          <td th:text="${order.Strawberryrate}"></td>
+          <td th:text="${order.Strawberryquantity}*${order.Strawberryrate}"></td>
+        </tr>
+        <tr th:if="${order.sheerkhurmaquantity}>0">  
+          <td>Sheerkhurma</td>
+          <td th:text="${order.sheerkhurmaquantity}"></td>
+          <td th:text="${order.sheerkhurmarate}"></td>
+          <td th:text="${order.sheerkhurmaquantity}*${order.sheerkhurmarate}"></td>
+        </tr>
+        <tr th:if="${order.Gajarhalwaquantity}>0">  
+          <td>Gajarhalwa</td>
+          <td th:text="${order.Gajarhalwaquantity}"></td>
+          <td th:text="${order.Gajarhalwarate}"></td>
+          <td th:text="${order.Gajarhalwaquantity}*${order.Gajarhalwarate}"></td>
+        </tr>
+        <tr th:if="${order.Chocochipsquantity}>0">  
+          <td>Chocochips</td>
+          <td th:text="${order.Chocochipsquantity}"></td>
+          <td th:text="${order.Chocochipsrate}"></td>
+          <td th:text="${order.Chocochipsquantity}*${order.Chocochipsrate}"></td>
+        </tr>
+        
+        <tr th:if="${order.Motichoorquantity}>0">  
+          <td>Motichoor</td>
+          <td th:text="${order.Motichoorquantity}"></td>
+          <td th:text="${order.Motichoorrate}"></td>
+          <td th:text="${order.Motichoorquantity}*${order.Motichoorrate}"></td>
+        </tr>
+        <tr th:if="${order.Mixberriesquantity}>0">  
+          <td>Mixberries</td>
+          <td th:text="${order.Mixberriesquantity}"></td>
+          <td th:text="${order.Mixberriesrate}"></td>
+          <td th:text="${order.Mixberriesquantity}*${order.Mixberriesrate}"></td>
+        </tr>
+        <tr th:if="${order.Pistaquantity}>0">  
+          <td>Pista</td>      
+          <td th:text="${order.Pistaquantity}"></td>
+          <td th:text="${order.Pistarate}"></td>
+          <td th:text="${order.Pistaquantity}*${order.Pistarate}"></td>
+        </tr>
+        <tr>
+          <td> <div class="totalprice">
+            <label for="bill"> TotalPrice:</label>           
+            <input type="text" id="bill" th:value="${order.totalprice}" >
+       </div></td>
+          
+        </tr> 
+      </table> 
+      
+      </div>  -->
+          <!-- <div class="totalprice">
+               <label for="bill"> TotalPrice:</label>           
+               <input type="text" id="bill" th:value="${order.totalprice}" >
+          </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .btn0{
+    background-color: rgb(237, 10, 10);
+    border-radius: 10px;
+    color:white;
+}
+
+.btn0:hover{
+    background-color: cornflowerblue;
+}
+
+a{
+text-decoration: none;
+    color: white;
+}
+
+.in{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+.invoiceCont{
+    width: 100%;
+    height: 100px;
+    background-color: #f90808;
+    color: white;
+}
+
+.invoiceCont1{
+    width: 100%;
+    height: 20px;
+    
+}
+
+.invoiceCont2{
+    margin-top: 17px;
+    margin-bottom: 8px;
+}
+
+.total{
+    text-align: end;
+    font-size: 21px;
+}
+.headIncoice{
+  font-size: 30px;
+  color:#ef190a ;
+}
+
+#thankYouPopup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width:400px;
+            height: 200px;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        #thankYouPopup button {
+            margin-top: 10px;
+        }
+
+        /* Overlay to darken the background */
+        #overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container-fluid invoiceCont">
+        <div class="row">
+            <div class="col-12">
+                  <h2 class="in">ICE-CREAM</h2>
+                </div>
+       
+        </div>
+    </div>
+
+    <div class="container-fluid invoiceCont1">
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+    </div>
+
+    <div class="container invoiceCont2">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="headIncoice">Invoice</h3>
+                <h5>BILL TO</h6>
+                <div class="d-flex">
+                    <p>Name :</p>
+                    <p th:text="${order.name}"></p>
+                </div>
+
+
+                <div class="d-flex">
+                    <p>Mobile Number :</p>
+                    <p th:text="${order.mobileno}"></p> 
+                </div>
+                
+                <div class="d-flex">
+                  <p>Adress:</p>
+                  <p th:text="${order.adress}"></p> 
+              </div>
+
+              <div class="d-flex">
+                <p>Date :</p>
+                <p th:text="${order.date}"></p> 
+            </div>
+              
+               
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+               
+                    <table class="table table-bordered  border-primary">
+                        <h4>Product Purchased</h4>
+                    <thead class="table-info">
+                       
+                        <tr>
+                          <th>Flavour</th>
+                          <th>Quantity/kg</th>
+                          <th>Rate</th>
+                          <th>Amount</th>
+                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr th:if="${order.Mangoquantity}>0">  
+                        <td>Mango</td>
+                        <td th:text="${order.Mangoquantity}"></td>
+                         <td th:text="${order.Mangorate}"></td>
+                         <td th:text="${order.Mangoquantity}*${order.Mangorate}"></td>
+                      </tr>
+                      <tr th:if="${order.Coconutquantity}>0">  
+                        <td>Coconut</td>
+                        <td th:text="${order.Coconutquantity}"></td>
+                         <td th:text="${order.Coconutrate}"></td>
+                         <td th:text="${order.Coconutquantity}*${order.Coconutrate}"></td>
+                      </tr>
+                     
+
+                      <tr th:if="${order.kalajamunquantity}>0">  
+                        <td>Kalajamun</td>
+                        <td th:text="${order.kalajamunquantity}"></td>
+                        <td th:text="${order.kalajamunrate}"></td>
+                        <td th:text="${order.kalajamunquantity}*${order.kalajamunrate}"></td>
+                      </tr>
+                      <tr th:if="${order.Strawberryquantity}>0">  
+                        <td>Strawberry</td>
+                        <td th:text="${order.Strawberryquantity}"></td>
+                        <td th:text="${order.Strawberryrate}"></td>
+                        <td th:text="${order.Strawberryquantity}*${order.Strawberryrate}"></td>
+                      </tr>
+                      <tr th:if="${order.sheerkhurmaquantity}>0">  
+                        <td>Sheerkhurma</td>
+                        <td th:text="${order.sheerkhurmaquantity}"></td>
+                        <td th:text="${order.sheerkhurmarate}"></td>
+                        <td th:text="${order.sheerkhurmaquantity}*${order.sheerkhurmarate}"></td>
+                      </tr>
+                      <tr th:if="${order.Gajarhalwaquantity}>0">  
+                        <td>Gajarhalwa</td>
+                        <td th:text="${order.Gajarhalwaquantity}"></td>
+                        <td th:text="${order.Gajarhalwarate}"></td>
+                        <td th:text="${order.Gajarhalwaquantity}*${order.Gajarhalwarate}"></td>
+                      </tr>
+                      <tr th:if="${order.Chocochipsquantity}>0">  
+                        <td>Chocochips</td>
+                        <td th:text="${order.Chocochipsquantity}"></td>
+                        <td th:text="${order.Chocochipsrate}"></td>
+                        <td th:text="${order.Chocochipsquantity}*${order.Chocochipsrate}"></td>
+                      </tr>
+                      <tr th:if="${order.Motichoorquantity}>0">  
+                        <td>Motichoor</td>
+                        <td th:text="${order.Motichoorquantity}"></td>
+                        <td th:text="${order.Motichoorrate}"></td>
+                        <td th:text="${order.Motichoorquantity}*${order.Motichoorrate}"></td>
+                      </tr>
+                      <tr th:if="${order.Mixberriesquantity}>0">  
+                        <td>Mixberries</td>
+                        <td th:text="${order.Mixberriesquantity}"></td>
+                        <td th:text="${order.Mixberriesrate}"></td>
+                        <td th:text="${order.Mixberriesquantity}*${order.Mixberriesrate}"></td>
+                      </tr>
+                      <tr th:if="${order.Pistaquantity}>0">  
+                        <td>Pista</td>      
+                        <td th:text="${order.Pistaquantity}"></td>
+                        <td th:text="${order.Pistarate}"></td>
+                        <td th:text="${order.Pistaquantity}*${order.Pistarate}"></td>
+                      </tr>
+
+                    </tbody>
+                    </table>
+                    <div class="totalprice">
+                        <label for="bill"style="margin-left: 70%;" ><b>TotalPrice</b></label>
+                        <input type="text" id="bill"  th:value="${order.totalprice}" disabled>
+                    </div>
+               
+                    
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4>Terms and Conditions</h4>
+                <ol type="1">
+                    <li>Amount once paid will be non-refundable</li>
+                    <li>All prices posted on this Site are subject to change without notice.</li>
+
+                </ol>
+
+                <h6 style="text-align: center;">Copyright, 2024, All Rights Reserved</h6>
+                
+    <form id="myForm">
+        <!-- Your form elements go here -->
+        <button type="submit" onclick="showThankYouPopup(event)" style="color:white;
+        background-color: #ea1b1b; 
+        font-weight: bold; margin: 5px;">Pay</button>
+    </form>
+
+    <!-- The overlay -->
+    <div id="overlay"></div>
+
+    <!-- The custom popup -->
+    <div id="thankYouPopup">
+        <h3>Thanks for your business</h3>
+        <h5>Amount is been payed successfully</h5>
+        <button onclick="closeThankYouPopup()" >Close</button>
+    </div>
+
+    <!-- print -->
+    <button onclick="printpage()" style="color:white;
+                   background-color: #ea1b1b; 
+                   font-weight: bold; margin: 5px;">Click to Print </button>
+
+
+    
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function printpage() {
+            window.print();
+        }
+//
+        function showThankYouPopup(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("thankYouPopup").style.display = "block";
+        }
+
+        function closeThankYouPopup() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("thankYouPopup").style.display = "none";
+            // Optionally submit the form here if you want to submit after showing the message
+            // document.getElementById("myForm").submit();
+        }
+       
+
+    </script>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
